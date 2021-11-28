@@ -1,7 +1,7 @@
 # **🐶 Resources 🐶**
 
 Api documentation:
-[Postman](https://documenter.getpostman.com/view/4785582/UVJckGJz#42101b5d-075a-4890-8fc9-92d9ee01e31f)
+[Postman](https://github.com/alexrobaina/api-clean-code/images/node-js-express.png)
 
 # **🦊 Clean architecture templeate login 🦊**
 
