@@ -7,7 +7,8 @@ Api documentation:
 
 ## Technologies:
 
-![node](../images/node-js-express.png)
+<img src="https://raw.githubusercontent.com/alexrobaina/api-clean-code/main/images/node-js-express.png" alt="node" style="width:100px;"/>
+
 mongoose.
 bcrypt.
 multer.
