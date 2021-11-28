@@ -1,0 +1,7 @@
+/node_modules
+/dist
+/.env
+/documents
+
+
+.DS_Store
