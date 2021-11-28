@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { getAll, getOne } from '../../repositories/userRepository';
 import User from '../../database/models/user';
+import { SUCCESS_RESPONSE, SOMETHING_IS_WRONG } from '../../constants/constants';
 
 //=====================================
 //        READ LIST USERS = GET
@@ -19,17 +20,16 @@ export const getUsers = async (req: Request, res: Response) => {
     const total = await User.countDocuments();
     res.status(200).json({
       ok: true,
-      message: 'Everything ok',
-      usersDB,
       total,
+      usersDB,
+      message: SUCCESS_RESPONSE,
     });
   } catch (error) {
     if (error) {
       console.log(error);
-
       return res.status(500).json({
         ok: false,
-        message: `'Something on the server didn't work right.'`,
+        message: SOMETHING_IS_WRONG,
         error,
       });
     }
@@ -50,7 +50,7 @@ export const getUser = async (req: Request, res: Response) => {
     if (!userDB) {
       return res.status(401).json({
         ok: false,
-        message: `'Something on the server didn't work right.'`,
+        message: SOMETHING_IS_WRONG,
       });
     }
 

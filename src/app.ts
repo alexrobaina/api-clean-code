@@ -6,9 +6,10 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import passport from 'passport';
 import passportMiddleware from './middlewares/passport';
-
 import routes from './routes';
 import path from 'path';
+
+import { APP_NAME } from './constants/constants';
 
 // initializations
 const app = express();
@@ -27,7 +28,7 @@ passport.use(passportMiddleware);
 
 // routes
 app.get('/', (req, res) => {
-  res.send(`Welcome to Petslove 🦄`);
+  res.send(`Welcome to ${APP_NAME}`);
 });
 
 app.use(routes);
