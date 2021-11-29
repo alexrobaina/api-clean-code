@@ -2,6 +2,7 @@ import { Response, Request } from 'express';
 import { bcrypt } from '../userModule';
 import User from '../../database/models/user';
 import { SALT_BCRYPT } from '../../database/models/constants/saltBcrypt';
+import { NOT_FOUND_DOCUMENT, SUCCESS_RESPONSE } from '../../constants/constants';
 
 //=====================================
 //       UPDATE USER ID = PUT
@@ -16,7 +17,7 @@ const updateUser = async (req: Request, res: Response) => {
   if (!user) {
     return res.status(401).json({
       ok: true,
-      message: `User not found`,
+      message: NOT_FOUND_DOCUMENT,
     });
   }
 
@@ -29,8 +30,8 @@ const updateUser = async (req: Request, res: Response) => {
 
   res.status(200).json({
     ok: true,
-    message: 'Everthing Okay',
     userUpdated,
+    message: SUCCESS_RESPONSE,
   });
 };
 

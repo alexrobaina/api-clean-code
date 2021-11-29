@@ -7,14 +7,13 @@ Api documentation:
 
 ## Technologies:
 
-<img src="https://raw.githubusercontent.com/alexrobaina/api-clean-code/main/images/node-js-express.png" alt="node" style="width:100px;"/>
-
-mongoose.
-bcrypt.
-multer.
-aws-sdk.
-passport-jwt.
-nodemailer.
+- Express.js
+- Typescript
+- mongoose.
+- bcrypt.
+- multer.
+- aws-sdk.
+- passport-jwt.
 
 ## How to run this project in you localhost?
 
@@ -28,9 +27,7 @@ nodemailer.
 
 3 - Install MongoDB and run a database
 
-- Run MongoDB : Install and run mongodb in local
-
-- Or install it manually: https://docs.mongodb.com/manual/
+- Install mongodb: https://docs.mongodb.com/manual/
 
 4 - When you've cloned this project you need to install the dependencies with `npm install`
 

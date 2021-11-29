@@ -1,6 +1,11 @@
 import { Response, Request } from 'express';
 import { createToken } from '../userModule';
 import User from '../../database/models/user';
+import {
+  NOT_FOUND_DOCUMENT,
+  EMAIL_PASSWORD_INVALID,
+  CREDENTIAL_ERROR,
+} from '../../constants/constants';
 
 //=====================================
 //        LOGIN USERS = POST
@@ -11,14 +16,14 @@ export const login = async (req: Request, res: Response) => {
 
   if (!email || !password) {
     return res.status(400).json({
-      message: 'Please, Send your email and password',
+      message: EMAIL_PASSWORD_INVALID,
     });
   }
 
   const user = await User.findOne({ email });
 
   if (!user) {
-    return res.status(400).json({ message: 'the user does not exist' });
+    return res.status(400).json({ message: NOT_FOUND_DOCUMENT });
   }
 
   const isMath = await user.comparePassword(password);
@@ -31,6 +36,6 @@ export const login = async (req: Request, res: Response) => {
   }
 
   return res.status(400).json({
-    message: 'The email or password are incorrect',
+    message: CREDENTIAL_ERROR,
   });
 };

@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import { response } from 'express';
 import jwt from 'jsonwebtoken';
+import { SEED_DEVELOP } from '../constants/constants';
 
 type TUser = {
   _id?: string;
@@ -9,7 +10,7 @@ type TUser = {
   email: string;
 };
 
-const SEED = process.env.SEED || 'key-desarollo-secrets-yes';
+const SEED = process.env.SEED || SEED_DEVELOP;
 
 function createToken(user: TUser) {
   const { _id, email, name, role } = user;

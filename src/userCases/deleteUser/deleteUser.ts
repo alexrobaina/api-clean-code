@@ -1,5 +1,10 @@
 import { Response, Request } from 'express';
 import User from '../../database/models/user';
+import {
+  NOT_FOUND_DOCUMENT,
+  SOMETHING_IS_WRONG,
+  SUCCESS_RESPONSE,
+} from '../../constants/constants';
 
 //=====================================
 //       DELETE USER ID = DELETE
@@ -14,7 +19,7 @@ const deleteUser = async (req: Request, res: Response) => {
     if (!userDB) {
       return res.status(401).json({
         ok: false,
-        message: `There is no user with this id: ${_id}`,
+        message: NOT_FOUND_DOCUMENT,
       });
     }
 
@@ -23,15 +28,14 @@ const deleteUser = async (req: Request, res: Response) => {
     res.status(200).json({
       ok: true,
       userDeleted,
-      message: ' Everything is normal',
+      message: SUCCESS_RESPONSE,
     });
   } catch (error) {
     console.log(error);
-
     return res.status(500).json({
-      ok: true,
-      message: `'Something on the server didn't work right.'`,
       error,
+      ok: true,
+      message: SOMETHING_IS_WRONG,
     });
   }
 };

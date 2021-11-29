@@ -1,6 +1,6 @@
 import express from 'express';
 import { create, getUser, getUsers, update, Delete, login } from '../userCases/userController';
-import { verificaToken, verificaRole_User, verificaRole_Admin } from '../middlewares/auth';
+import { verificaToken, verificaRole_Admin } from '../middlewares/auth';
 
 const router = express.Router();
 
