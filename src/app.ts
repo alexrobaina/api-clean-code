@@ -5,10 +5,10 @@ import dotenv from 'dotenv';
 // sirve para comunicarnos con otros tipos de servidores de desarrollo
 import cors from 'cors';
 import passport from 'passport';
+import { config } from './config/config';
 import passportMiddleware from './middlewares/passport';
 import routes from './routes';
 import path from 'path';
-
 import { APP_NAME } from './constants/constants';
 
 // initializations
@@ -16,7 +16,7 @@ const app = express();
 dotenv.config();
 
 // settings
-app.set('port', process.env.PORT || 3001);
+app.set('port', config.PORT);
 // middleware
 app.use(morgan('dev'));
 app.use(cors());
