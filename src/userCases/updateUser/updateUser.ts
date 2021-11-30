@@ -27,6 +27,7 @@ const updateUser = async (req: Request, res: Response) => {
   }
 
   const userUpdated = await User.findByIdAndUpdate({ _id }, body);
+  if (body.username) body.username = body.username.replace(/ /g, '-').toLowerCase();
 
   res.status(200).json({
     ok: true,

@@ -6,7 +6,7 @@ import { save } from '../../repositories/userRepository';
 //           CREATE USER = POST
 //=====================================
 
-export const createUser = async (req: Request, res: Response) => {
+export const create = async (req: Request, res: Response) => {
   try {
     await save(req.body);
     res.status(201).json({
@@ -25,5 +25,3 @@ export const createUser = async (req: Request, res: Response) => {
     }
   }
 };
-
-export default createUser;

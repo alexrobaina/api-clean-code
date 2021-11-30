@@ -10,13 +10,14 @@ const rolesValidos = {
   message: 'Error, expected {PATH} is not valid.',
 };
 
-var userSchema = new Schema({
+const userSchema = new Schema({
   img: { type: String, required: false },
   terms: { type: Boolean, default: true },
   state: { type: Boolean, default: true },
   phone: { type: String, required: false },
   createdDate: { type: Date, required: true },
   name: { type: String, required: false, lowercase: true },
+  username: { type: String, required: false, lowercase: true },
   lastname: {
     trim: true,
     type: String,

@@ -6,7 +6,6 @@ export const getAll = async () => await User.find({}, userProps);
 export const getOne = async (_id: string) => await User.findById({ _id }, userProps);
 
 export const save = async (body: any) => {
-  console.log(4, body.password);
   const user = new User({
     img: body.img,
     role: body.role,
